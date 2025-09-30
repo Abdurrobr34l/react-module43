@@ -10,25 +10,31 @@ import Mobiles from "./components/mobiles/Mobiles.jsx";
 import Laptop from "./components/laptop/Laptop.jsx";
 import Header from "./components/header/Header.jsx";
 import Users from "./components/users/users.jsx";
+import UserDetails from "./components/userDetails/UserDetails.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
     children: [
-      {index: true, Component: Home},
-      {path: "mobiles", Component: Mobiles},
-      {path: "laptop", Component: Laptop},
+      { index: true, Component: Home },
+      { path: "mobiles", Component: Mobiles },
+      { path: "laptop", Component: Laptop },
       {
         path: "users",
-        loader: () => fetch('https://jsonplaceholder.typicode.com/users') ,
-        Component: Users
+        loader: () => fetch("https://jsonplaceholder.typicode.com/users"),
+        Component: Users,
       },
-    ]
+      {
+        path: "users/:userId",
+        loader: ({ params }) => fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`),
+        Component: UserDetails 
+      },
+    ],
   },
   {
     path: "route",
-    element: <div>Hi, i'm from React Router</div>
+    element: <div>Hi, i'm from React Router</div>,
   },
 ]);
 

@@ -1,12 +1,12 @@
 import React from "react";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
 const Users = () => {
   const users = useLoaderData();
   console.log(users);
 
   return (
-    <div className="flex flex-col border-2 flex-3 h-[80vh]">
+    <div className="flex flex-col flex-3">
       <h1 className="text-5xl">It is Users</h1>
 
       <div className="mt-10 grid grid-cols-4 gap-5">
@@ -17,6 +17,8 @@ const Users = () => {
             <p>{username}</p>
             <p>{email}</p>
             <p>{zipcode}</p>
+            {/* <button className="mt-3 px-3 py-1 text-sm border-2 rounded-lg cursor-pointer">More Details</button> */}
+            <Link to={`/users/${id}`} className="mt-3 px-3 py-1 text-sm border-2 rounded-lg cursor-pointer">More Details</Link>
           </div>
         ))}
       </div>
