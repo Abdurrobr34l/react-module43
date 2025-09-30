@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 
 const Header = () => {
   const [toggler, setToggler] = useState(true);
@@ -15,12 +15,12 @@ const Header = () => {
   // map links dynamically
   const menuLinks = navigationData.map((route) => (
     <li key={route.id}>
-      <Link
+      <NavLink
         to={route.path}
         className="transition duration-300 hover:text-accent"
       >
         {route.name}
-      </Link>
+      </NavLink>
     </li>
   ));
 
