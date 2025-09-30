@@ -1,12 +1,15 @@
-import React from 'react';
-import Header from '../header/Header';
-import { Outlet } from 'react-router';
+import React from "react";
+import Header from "../header/Header";
+import { Outlet } from "react-router";
+import Container from "../container/Container";
 
 const Root = () => {
   return (
     <div>
-      <Header></Header>
-      <Outlet></Outlet>
+      <Container>
+        <Header></Header>
+        <Outlet></Outlet>
+      </Container>
     </div>
   );
 };
