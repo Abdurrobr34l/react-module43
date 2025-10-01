@@ -8,7 +8,7 @@ const Header = () => {
     { id: 2, name: "Mobile", path: "/mobiles" },
     { id: 3, name: "Laptop", path: "/laptop" },
     { id: 1, name: "Users", path: "/users" },
-    // { id: 4, name: "Contact", path: "/contact" },
+    { id: 4, name: "Posts", path: "/posts" },
     // { id: 5, name: "Blog", path: "/blog" },
   ];
 
