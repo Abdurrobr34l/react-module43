@@ -1,9 +1,8 @@
 import React from "react";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 
 const LaptopDetails = () => {
   const laptop = useLoaderData();
-
   const {
     brand,
     model,
@@ -19,6 +18,11 @@ const LaptopDetails = () => {
     weight,
     description,
   } = laptop;
+
+  const navigate = useNavigate()
+const navigateBack = () => {
+  navigate(-1)
+}
 
   return (
     <div className="flex flex-col items-center mx-auto px-4 py-10 bg-gray-100 min-h-screen">
@@ -79,9 +83,12 @@ const LaptopDetails = () => {
           </div>
 
           {/* Buy Button */}
-          <div className="mt-6">
+          <div className="flex gap-5 mt-6">
             <button className="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 rounded-lg transition-all">
               Buy Now
+            </button>
+            <button onClick={navigateBack} className="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 rounded-lg transition-all">
+              Go Back
             </button>
           </div>
         </div>

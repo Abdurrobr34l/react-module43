@@ -5,10 +5,10 @@ const Header = () => {
   const [toggler, setToggler] = useState(true);
 
   const navigationData = [
-    { id: 2, name: "Mobile", path: "/mobiles" },
     { id: 3, name: "Laptop", path: "/laptop" },
     { id: 1, name: "Users", path: "/users" },
     { id: 4, name: "Posts", path: "/posts" },
+    { id: 2, name: "Mobile", path: "/mobiles" },
     // { id: 5, name: "Blog", path: "/blog" },
   ];
 

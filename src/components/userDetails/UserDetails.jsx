@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 
 const UserDetails = () => {
   const user = useLoaderData();
@@ -19,6 +19,11 @@ const UserDetails = () => {
     website,
     company: { name: companyName, catchPhase, bs },
   } = user;
+
+    const navigate = useNavigate();
+  const navigateBack = () => {
+    navigate(-1);
+  };
 
   return (
     <>
@@ -55,6 +60,8 @@ const UserDetails = () => {
             <span>{catchPhase}</span>
             <span>{bs}</span>
           </p>
+
+        <button onClick={navigateBack} className="mt-5 bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 rounded-lg transition-all">Go Back</button>
         </div>
 
       </div>
