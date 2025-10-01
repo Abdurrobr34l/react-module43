@@ -9,7 +9,7 @@ const Users = () => {
     <div className="flex flex-col flex-3">
       <h1 className="text-5xl">It is Users</h1>
 
-      <div className="mt-10 grid grid-cols-4 gap-5">
+      <div className="my-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {users.map(({id, name, username, email, address: {zipcode}}) => (
 
           <div key={id} className="p-3 border-2 rounded-xl">
@@ -17,8 +17,7 @@ const Users = () => {
             <p>{username}</p>
             <p>{email}</p>
             <p>{zipcode}</p>
-            {/* <button className="mt-3 px-3 py-1 text-sm border-2 rounded-lg cursor-pointer">More Details</button> */}
-            <Link to={`/users/${id}`} className="mt-3 px-3 py-1 text-sm border-2 rounded-lg cursor-pointer">More Details</Link>
+            <Link to={`/users/${id}`} className="inline-block mt-3 px-3 py-1 text-sm border-2 rounded-lg cursor-pointer">More Details</Link>
           </div>
         ))}
       </div>
