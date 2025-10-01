@@ -7,12 +7,15 @@ import { RouterProvider } from "react-router/dom";
 import Root from "./components/root/Root.jsx";
 import Home from "./components/home/Home.jsx";
 import Mobiles from "./components/mobiles/Mobiles.jsx";
-import Laptop from "./components/laptop/Laptop.jsx";
+import Laptops from "./components/laptops/Laptops.jsx";
 import Header from "./components/header/Header.jsx";
 import Users from "./components/users/users.jsx";
 import UserDetails from "./components/userDetails/UserDetails.jsx";
 import Posts from "./components/posts/Posts.jsx";
 import PostsDetails from "./components/posts/PostsDetails.jsx";
+
+import laptopsData from "./components/laptops/LaptopData.json";
+import LaptopDetails from "./components/laptops/LaptopDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +24,26 @@ const router = createBrowserRouter([
     children: [
       { index: true, Component: Home },
       { path: "mobiles", Component: Mobiles },
-      { path: "laptop", Component: Laptop },
+
+      //* LAPTOP
+      { path: "laptop",
+        loader: () => {
+          return laptopsData;
+        },
+        Component: Laptops, 
+      },
+      {
+        path: "laptop/:laptopId",
+        loader: ({ params }) => {
+          const laptop = laptopsData.find(
+            (item) => item.id === parseInt(params.laptopId)
+          );
+          return laptop;
+        },
+        Component: LaptopDetails,
+      },
+
+      //* USERS  
       {
         path: "users",
         loader: () => fetch("https://jsonplaceholder.typicode.com/users"),
@@ -33,6 +55,8 @@ const router = createBrowserRouter([
           fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`),
         Component: UserDetails,
       },
+
+      //* POSTS
       {
         path: "posts",
         loader: () => fetch("https://jsonplaceholder.typicode.com/posts"),
