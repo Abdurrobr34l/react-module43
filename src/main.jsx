@@ -26,11 +26,12 @@ const router = createBrowserRouter([
       { path: "mobiles", Component: Mobiles },
 
       //* LAPTOP
-      { path: "laptop",
+      {
+        path: "laptop",
         loader: () => {
           return laptopsData;
         },
-        Component: Laptops, 
+        Component: Laptops,
       },
       {
         path: "laptop/:laptopId",
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
         Component: LaptopDetails,
       },
 
-      //* USERS  
+      //* USERS
       {
         path: "users",
         loader: () => fetch("https://jsonplaceholder.typicode.com/users"),
@@ -73,6 +74,11 @@ const router = createBrowserRouter([
   {
     path: "route",
     element: <div>Hi, i'm from React Router</div>,
+  },
+  //* NOT FOUND PAGE
+  {
+    path: "*",
+    element: <h1 className="text-7xl font-extrabold place-self-center place-content-center h-screen text-cyan-400">Page Not Found: 404 Status</h1>,
   },
 ]);
 
